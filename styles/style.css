@@ -1,0 +1,43 @@
+
+header{
+    background-color: grey;
+    color: #DA096C;
+}
+main{
+    background-color: #F8F8F8;
+    position: relative;
+    .banner{
+        h2{
+            position: absolute;
+            background-color: white;
+            top: 18vh;
+            left: 46%;
+            color: red;
+            z-index: 99;
+        }
+        div{
+            height: 40vh;
+        }    
+    }
+    .cards{
+        .tarjetas{
+            border: 2px solid #DA096C;
+            transition: ease .2s;
+            &:hover{
+                transform: scale(1.05);
+                box-shadow: 0 0 10px black;
+                margin: 5vh;
+            }
+        }
+        .irDetails{
+            background-color: #DA096C;
+            color: white;
+            font-weight: bold;
+        }
+    }
+}
+footer{
+    height: 10vh;
+    width: 100%;
+    background-color: grey;
+}
