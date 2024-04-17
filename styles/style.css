@@ -1,24 +1,31 @@
 
 header{
+    background-color: #272526;
     img{
         filter: contrast(200%);
     }
-    background-color: #272526;
 }
 main{
     background-color: #011F32;
-    position: relative;
     .banner{
-        h2{
-            position: absolute;
-            font-weight: bold;
-            filter: drop-shadow(0 0 10px white);
-            color: #DA096C;
-            z-index: 99;
+        .bannerText{
+            h2{
+                color: #DA096C;
+                filter: contrast(200%) drop-shadow(0 0 5px black);
+            }
         }
+        
         div{
             height: 40vh;
         }    
+    }
+    .btnSearch{
+        background-color: #DA096C;
+        &:hover{
+            border: 1px solid #DA096C;
+            background-color: white;
+            box-shadow: inset 0 0 15px #DA096C;
+        }
     }
     .cards{
         .tarjetas{
@@ -71,6 +78,28 @@ footer{
     height: 10vh;
     width: 100%;
     background-color: #272526;
+    .btnSocial{
+        height: 8vh;
+        width: 8vh;
+        border: none;
+        background-position: center;
+        background-size: 100% 100%;
+        transition: ease .2s;
+        &:hover{
+            box-shadow: 0 0 1vw #DA096C;
+            margin: 0 .2vw;
+            transform: scale(1.05);
+        }
+    }
+    .btnFacebook{
+        background-image: url(/assets/facebook.png);
+    }
+    .btnWhatsApp{
+        background-image: url(/assets/whatsapp.png);
+    }
+    .btnInstagram{
+        background-image: url(/assets/instagram.png);
+    }
     a{
         color: white;
         transition: ease .1s;
