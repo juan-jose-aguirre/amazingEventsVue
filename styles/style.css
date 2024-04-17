@@ -1,18 +1,19 @@
 
 header{
-    background-color: grey;
-    color: #DA096C;
+    img{
+        filter: contrast(200%);
+    }
+    background-color: #272526;
 }
 main{
-    background-color: #F8F8F8;
+    background-color: #011F32;
     position: relative;
     .banner{
         h2{
             position: absolute;
-            background-color: white;
-            top: 18vh;
-            left: 46%;
-            color: red;
+            font-weight: bold;
+            filter: drop-shadow(0 0 10px white);
+            color: #DA096C;
             z-index: 99;
         }
         div{
@@ -25,19 +26,57 @@ main{
             transition: ease .2s;
             &:hover{
                 transform: scale(1.05);
-                box-shadow: 0 0 10px black;
-                margin: 5vh;
+                box-shadow: 0 0 10px #DA096C;
+                margin: 2vh;
             }
         }
         .irDetails{
             background-color: #DA096C;
             color: white;
             font-weight: bold;
+            &:hover{
+                border: 2px solid #DA096C;
+                background-color: white;
+                color: #DA096C;
+                text-decoration: underline;
+            }
+        }
+    }
+    .formulario{
+        form{
+            border: 2px solid #DA096C;
+            background-color: #272526;
+            padding: 1vw;
+            margin: 2vw;
+            border-radius: 15px;
+            color: #DA096C;
+            label{
+                filter: contrast(200%);
+            }
+            button{
+                background-color: #DA096C;
+                color: white;
+                &:hover{
+                    border: 2px solid #DA096C;
+                    background-color: white;
+                    color: #DA096C;
+                    font-weight: bold;
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }
 footer{
     height: 10vh;
     width: 100%;
-    background-color: grey;
+    background-color: #272526;
+    a{
+        color: white;
+        transition: ease .1s;
+        &:hover{
+            font-weight: bold;
+            filter: drop-shadow(0 0 10px #DA096C);
+        }
+    }
 }
