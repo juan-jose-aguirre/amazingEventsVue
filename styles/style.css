@@ -14,7 +14,10 @@ main{
                 filter: contrast(200%) drop-shadow(0 0 5px black);
             }
         }
-        
+        .controls{
+            background-color: #DA096C;
+            border-radius: 15px;
+        }
         div{
             height: 40vh;
         }    
@@ -75,7 +78,7 @@ main{
     }
 }
 footer{
-    height: 10vh;
+    height: auto;
     width: 100%;
     background-color: #272526;
     .btnSocial{

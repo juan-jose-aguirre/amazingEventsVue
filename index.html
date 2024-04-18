@@ -67,9 +67,9 @@
         </div>
       </nav>
     </header>
-    <main class="mb-3">
+    <main class="pb-3">
       <section class="banner position-relative">
-        <div class="bannerText position-absolute w-100 text-center pt-5 z-3">
+        <div class="bannerText position-absolute w-100 text-center pt-5 z-2">
           <h2 class="pt-5 fw-bold">HOME</h2>
         </div>
         <div id="carouselExample" class="carousel slide">
@@ -97,30 +97,32 @@
             </div>
           </div>
           <button
-            class="carousel-control-prev"
+            class="carousel-control-prev z-3"
             type="button"
             data-bs-target="#carouselExample"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="carousel-control-prev-icon controls" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
           <button
-            class="carousel-control-next"
+            class="carousel-control-next z-3"
             type="button"
             data-bs-target="#carouselExample"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon controls" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
       </section>
 
-      <section class="inputs mt-3 mx-3">
-        <div class="input-group mb-3 d-flex justify-content-center">
-          <div class="input-group-text">
-            <input
+      <section class="inputs mt-3">
+        <div class="input-group mb-3 d-flex justify-content-around">
+          <div class="d-flex flex-wrap justify-content-center mb-2">
+
+            <div class="input-group-text me-1 mb-1">
+              <input
               class="form-check-input mt-0"
               id="cate1"
               type="radio"
@@ -130,7 +132,7 @@
             />
             <label for="cate1" class="ms-2">Category 1</label>
           </div>
-          <div class="input-group-text">
+          <div class="input-group-text me-1 mb-1">
             <input
               class="form-check-input mt-0"
               id="cate2"
@@ -141,7 +143,7 @@
             />
             <label for="cate2" class="ms-2">Category 2</label>
           </div>
-          <div class="input-group-text">
+          <div class="input-group-text me-1 mb-1">
             <input
               class="form-check-input mt-0"
               id="cate3"
@@ -152,7 +154,7 @@
             />
             <label for="cate3" class="ms-2">Category 3</label>
           </div>
-          <div class="input-group-text">
+          <div class="input-group-text me-1 mb-1">
             <input
               class="form-check-input mt-0"
               id="cate4"
@@ -160,35 +162,36 @@
               value="cate4"
               name="cate"
               aria-label="cate4"
-            />
-            <label for="cate4" class="ms-2">Category 4</label>
-          </div>
-          <div class="input-group-text me-5">
-            <input
+              />
+              <label for="cate4" class="ms-2">Category 4</label>
+            </div>
+            <div class="input-group-text me-1 mb-1">
+              <input
               class="form-check-input mt-0"
               id="cate5"
               type="radio"
               value="cate5"
               name="cate"
               aria-label="cate5"
-            />
-            <label for="cate5" class="ms-2">Category 5</label>
+              />
+              <label for="cate5" class="ms-2">Category 5</label>
+            </div>
           </div>
 
-          <form class="d-flex ms-5" role="search">
+          <form class="d-flex mb-1" role="search">
             <input
-              class="form-control me-2"
+              class="form-control"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btnSearch" type="submit">🔍</button>
+            <button class="btn btnSearch ms-1 mb-1" type="submit">🔍</button>
           </form>
         </div>
       </section>
 
-      <section class="cards d-flex flex-wrap justify-content-center mx-3">
-        <div class="card me-3 my-1 tarjetas" style="width: 18rem">
+      <section class="cards d-flex flex-wrap justify-content-around mx-5">
+        <div class="card my-1 tarjetas" style="width: 18rem">
           <img src="./assets/cinema.jpg" class="card-img-top" alt="..." />
           <div class="card-body text-center d-flex flex-column justify-content-around">
             <h5 class="card-title">Avengers</h5>
@@ -201,7 +204,7 @@
             </div>
           </div>
         </div>
-        <div class="card me-3 my-1 tarjetas" style="width: 18rem">
+        <div class="card my-1 tarjetas" style="width: 18rem">
           <img src="./assets/books.jpg" class="card-img-top" alt="..." />
           <div class="card-body text-center d-flex flex-column justify-content-around">
             <h5 class="card-title">School Book Fair</h5>
@@ -214,7 +217,7 @@
             </div>
           </div>
         </div>
-        <div class="card me-3 my-1 tarjetas" style="width: 18rem">
+        <div class="card my-1 tarjetas" style="width: 18rem">
           <img
             src="./assets/costume_party.jpg"
             class="card-img-top"
@@ -231,7 +234,7 @@
             </div>
           </div>
         </div>
-        <div class="card me-3 my-1 tarjetas" style="width: 18rem">
+        <div class="card my-1 tarjetas" style="width: 18rem">
           <img src="./assets/marathon.jpg" class="card-img-top" alt="..." />
           <div class="card-body text-center d-flex flex-column justify-content-around">
             <h5 class="card-title">10K for life</h5>
@@ -248,11 +251,11 @@
     </main>
     <footer class="d-flex justify-content-between align-items-center px-3">
       <div>
-        <button type="button" class="btn btnSocial btnFacebook"></button>
-        <button type="button" class="btn btnSocial btnWhatsApp"></button>
-        <button type="button" class="btn btnSocial btnInstagram"></button>
+        <button type="button" class="btn btnSocial btnFacebook my-1"></button>
+        <button type="button" class="btn btnSocial btnWhatsApp my-1"></button>
+        <button type="button" class="btn btnSocial btnInstagram my-1"></button>
     </div>
-        <a href="" class="pt-2 fs-5">Created By Juan Aguirre with ❤️</a>
+        <a href="" class="pt-2 fs-6">Created By Juan Aguirre with ❤️</a>
     </footer>
 
     <script
