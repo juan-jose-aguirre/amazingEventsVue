@@ -107,7 +107,6 @@ footer{
         color: white;
         transition: ease .1s;
         &:hover{
-            font-weight: bold;
             filter: drop-shadow(0 0 10px #DA096C);
         }
     }
