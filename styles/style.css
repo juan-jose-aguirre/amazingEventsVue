@@ -76,6 +76,12 @@ main{
             }
         }
     }
+    .cardDetails{
+        border: 2px solid #DA096C;
+        img{
+            filter: blur(0.8);
+        }
+    }
 }
 footer{
     height: auto;

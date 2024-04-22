@@ -15,18 +15,19 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-md" data-bs-theme="dark">
+      <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img
+
+            <a class="navbar-brand" href="./index.html">
+              <img
               src="./assets/amazing_brand.png"
               alt="Amazing Events"
               width="80"
               height="24"
-            />
-          </a>
-
-          <button
+              />
+            </a>
+            
+            <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -34,21 +35,23 @@
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
-          >
+            >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div
-            class="collapse navbar-collapse d-flex flex-row-reverse"
+            class="collapse navbar-collapse"
             id="navbarNav"
           >
+          <div class="d-flex w-100  justify-content-end">
+
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a
-                  class="nav-link active"
+                class="nav-link active"
                   aria-current="page"
                   href="./index.html"
                   >Home</a
-                >
+                  >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./upcomingEvents.html">Upcoming Events</a>
@@ -64,25 +67,26 @@
               </li>
             </ul>
           </div>
+          </div>
         </div>
       </nav>
     </header>
-    <main class="pb-3">
-      <section>
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <div>
-                <img src="./assets/costume_party.jpg" class="w-50" alt="party">
-            </div>
-            <div class="w-50">
-                <h2>Halloween Night</h2>
-                <p>What: <span>Come in your scariest costume character to win amazing prizes</span></p>
-                <p>Where: <span>Room C</span></p>
-                <p>When: <span>2024-02-12</span></p>
-                <p>capacity: <span>12000</span></p>
-                <p>price: <span>$12 USD</span></p>
-            </div>
+    <main class="py-5">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-center">
+          <img class="cardDetails rounded-start border-end-0 w-50 object-fit-cover" src="./assets/costume_party.jpg" alt="Costume party">
+          <div class="cardDetails rounded-end border-start-0 text-center p-2 bg-light d-flex flex-column justify-content-center">
+            <h2>Halloween Night</h2>
+            <p>Date: 2024-02-12</p>
+            <p class="text-primary">Come in your scariest costume character to win amazing prizes.</p>
+            <p>Category: Costume Party</p>
+            <p>Place: Room C</p>
+            <p class="text-warning">Capacity: 12000</p>
+            <p>Estimate: 9000</p>
+            <p class="text-info">Price: 12 USD</p>
+          </div>
         </div>
-      </section>
+      </div>
     </main>
     <footer class="d-flex justify-content-between align-items-center px-3">
       <div>
@@ -90,7 +94,7 @@
         <button type="button" class="btn btnSocial btnWhatsApp my-1"></button>
         <button type="button" class="btn btnSocial btnInstagram my-1"></button>
     </div>
-        <a href="" class="pt-2 fs-5">Created By Juan Aguirre with ❤️</a>
+        <a href="" class="pt-2 fs-6">Created By Juan Aguirre with ❤️</a>
     </footer>
 
     <script
