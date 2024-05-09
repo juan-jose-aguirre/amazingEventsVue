@@ -201,8 +201,8 @@ const data = {
     let tarjeta = document.createElement("div");
     if(data.events[i].date > data.currentDate){
         tarjeta.innerHTML = `<div class="card h-100 tarjetas" style="width: 18rem">
-        <img src="${data.events[i].image}" class="card-img-top" alt="${data.events[i].name}" >
-        <div class="card-body text-center d-flex flex-column justify-content-around">
+        <img src="${data.events[i].image}" class="card-img-top h-50 object-fit-cover" alt="${data.events[i].name}" >
+        <div class="card-body text-center d-flex flex-column h-50">
         <h5 class="card-title">${data.events[i].name}</h5>
         <p class="card-text">
         ${data.events[i].description}
