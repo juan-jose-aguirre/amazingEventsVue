@@ -1,25 +1,3 @@
-/*
-<section class="cards d-flex flex-wrap justify-content-around mx-5"></section>
-
-
-<div class="card my-1 tarjetas" style="width: 18rem">
-          <img src="./assets/cinema.jpg" class="card-img-top" alt="..." >
-          <div class="card-body text-center d-flex flex-column justify-content-around">
-            <h5 class="card-title">Avengers</h5>
-            <p class="card-text">
-                Marvel's Avengers 3d premiere the start of an epic saga with your best superheroes.
-            </p>
-            <div class="d-flex justify-content-around align-items-baseline">
-              <p>$250 USD</p>
-              <a href="./details.html" class="btn irDetails">Details</a>
-            </div>
-          </div>
-        </div>
-
-        tarjetasHome
-
-        */
-
 const data = {
   currentDate: "2023-01-01",
   events: [
@@ -216,23 +194,192 @@ const data = {
     },
   ],
 };
+let urlDetails = new URL("http://127.0.0.1:5500/details.html");
 
+
+let inputSearch = document.querySelector(".inputSearch");
+let form = document.querySelector("form");
+form.addEventListener("submit",(e)=>{
+  e.preventDefault();
+  if(inputSearch.value == ""){
+    alert("Please enter something in the search bar");
+  }
+  
+});
 let lugar = document.getElementById("tarjetasHome");
-for (let i = 0; i < data.events.length; i++) {
-  let tarjeta = document.createElement("div");
-  tarjeta.innerHTML = `<div class="card h-100 tarjetas" style="width: 18rem">
-    <img src="${data.events[i].image}" class="card-img-top h-50 object-fit-cover" alt="${data.events[i].name}" >
-    <div class="card-body text-center d-flex flex-column h-50">
-      <h5 class="card-title">${data.events[i].name}</h5>
-      <p class="card-text">
-      ${data.events[i].description}
-      </p>
-      <div class="d-flex justify-content-around align-items-baseline">
-        <p>$${data.events[i].price} USD</p>
-        <a href="./details.html" class="btn irDetails">Details</a>
-      </div>
-    </div>
-  </div>`;
-  tarjeta.classList.add("my-3");
-  lugar.appendChild(tarjeta);
+pintarTarjetas(data.events, lugar);
+
+let padreCheckbox = document.querySelector(".padreCheckbox");
+let arregloCategorias = [];
+for (let evento of data.events) {
+  if (!arregloCategorias.includes(evento.category))
+    arregloCategorias.push(evento.category);
 }
+for (let categoria of arregloCategorias) {
+  let inputCheckbox = document.createElement("div");
+  inputCheckbox.innerHTML = `
+  <input class="form-check-input mt-0 inputCheckbox"
+  id="${categoria}"
+  type="checkbox"
+  value="${categoria}"
+  name="${categoria}"
+  aria-label="${categoria}"
+  >
+  <label for="${categoria}" class="ms-2">${categoria}</label>`;
+  inputCheckbox.className = "input-group-text me-1 mb-1";
+  padreCheckbox.appendChild(inputCheckbox);
+}
+
+function pintarTarjetas(arreglo, lugar) {
+  lugar.innerHTML = "";
+  for (let i = 0; i < arreglo.length; i++) {
+    let tarjeta = document.createElement("div");
+    let urlTemp = urlDetails+"?id="+arreglo[i]._id;
+
+    tarjeta.innerHTML = `<div class="card h-100 tarjetas" style="width: 18rem">
+      <img src="${arreglo[i].image}" class="card-img-top h-50 object-fit-cover" alt="${data.events[i].name}" >
+      <div class="card-body text-center d-flex flex-column h-50">
+        <h5 class="card-title">${arreglo[i].name}</h5>
+        <p class="card-text">
+        ${arreglo[i].description}
+        </p>
+        <div class="d-flex justify-content-around align-items-baseline">
+          <p>$${arreglo[i].price} USD</p>
+          <a href="${urlTemp}" class="btn irDetails">Details</a>
+        </div>
+      </div>
+    </div>`;
+    tarjeta.classList.add("my-3");
+    lugar.appendChild(tarjeta);
+  }
+}
+
+inputSearch.addEventListener("input", (e) => {
+  let checkboxTrue = document.querySelectorAll("input[type=checkbox]:checked");
+  if (e.target.value == "" && checkboxTrue.length == 0) {
+    console.log("Vacio texto, vacio check");
+    pintarTarjetas(data.events, lugar);
+  } else if (e.target.value != "" && checkboxTrue.length == 0) {
+    let arregloFiltrado = data.events.filter((evento) => {
+      if (
+        evento.name.toLowerCase().includes(e.target.value) ||
+        evento.description.toLowerCase().includes(e.target.value)
+      ) {
+        return evento;
+      }
+    });
+    if (arregloFiltrado.length != 0) {
+      pintarTarjetas(arregloFiltrado, lugar);
+    } else {
+      lugar.innerHTML = "";
+      let aviso = document.createElement("div");
+      aviso.className = "alert alert-info";
+      aviso.setAttribute("role", "alert");
+      aviso.innerText = "No hay eventos que coincidan con los filtros";
+      lugar.appendChild(aviso);
+    }
+  } else if (e.target.value != "" && checkboxTrue.length != 0) {
+    let arregloFiltrado = data.events.filter((evento) => {
+      if (
+        evento.name.toLowerCase().includes(e.target.value.trim()) ||
+        evento.description.toLowerCase().includes(e.target.value.trim())
+      ) {
+        return evento;
+      }
+    });
+    let arregloFiltrado2 = arregloFiltrado.filter((evento) => {
+      for (let checkboxTachado of checkboxTrue) {
+        if (checkboxTachado.value == evento.category) {
+          return evento;
+        }
+      }
+    });
+    if (arregloFiltrado2.length != 0) {
+      pintarTarjetas(arregloFiltrado2, lugar);
+    } else {
+      lugar.innerHTML = "";
+      let aviso = document.createElement("div");
+      aviso.className = "alert alert-info";
+      aviso.setAttribute("role", "alert");
+      aviso.innerText = "No hay eventos que coincidan con los filtros";
+      lugar.appendChild(aviso);
+    }
+  } else if (e.target.value == "" && checkboxTrue.length != 0) {
+    let arregloFiltrado = data.events.filter((evento) => {
+      for (let checkboxTachado of checkboxTrue) {
+        if (evento.category == checkboxTachado.value) {
+          return evento;
+        }
+      }
+    });
+    pintarTarjetas(arregloFiltrado, lugar);
+  }
+});
+
+padreCheckbox.addEventListener("change", (e) => {
+  let checkboxTrue = document.querySelectorAll("input[type=checkbox]:checked");
+  if (checkboxTrue.length == 0 && inputSearch.value == "") {
+    pintarTarjetas(data.events, lugar);
+  } else if (checkboxTrue.length != 0 && inputSearch.value == "") {
+    console.log("vacio search y algo en check");
+    let arregloFiltrado = data.events.filter((evento) => {
+      for (let checkboxTachado of checkboxTrue) {
+        if (evento.category == checkboxTachado.value) {
+          return evento;
+        }
+      }
+    });
+    pintarTarjetas(arregloFiltrado, lugar);
+  } else if (checkboxTrue.length != 0 && inputSearch.value != "") {
+    let arregloFiltrado = data.events.filter((evento) => {
+      if (
+        evento.name
+          .toLowerCase()
+          .trim()
+          .includes(inputSearch.value.trim().toLowerCase()) ||
+        evento.description
+          .toLowerCase()
+          .trim()
+          .includes(inputSearch.value.trim().toLowerCase())
+      ) {
+        return evento;
+      }
+    });
+    let arregloFiltrado2 = arregloFiltrado.filter((evento) => {
+      for (let checkboxTachado of checkboxTrue) {
+        if (checkboxTachado.value == evento.category) {
+          return evento;
+        }
+      }
+    });
+    if (arregloFiltrado2.length != 0) {
+      pintarTarjetas(arregloFiltrado2, lugar);
+    } else {
+      lugar.innerHTML = "";
+      let aviso = document.createElement("div");
+      aviso.className = "alert alert-info";
+      aviso.setAttribute("role", "alert");
+      aviso.innerText = "No hay eventos que coincidan con los filtros";
+      lugar.appendChild(aviso);
+    }
+  } else if (checkboxTrue.length == 0 && inputSearch.value != "") {
+    let arregloFiltrado = data.events.filter((evento) => {
+      if (
+        evento.name.toLowerCase().includes(inputSearch.value.trim().toLowerCase()) ||
+        evento.description.toLowerCase().includes(inputSearch.value.trim().toLowerCase())
+      ) {
+        return evento;
+      }
+    });
+    if (arregloFiltrado.length != 0) {
+      pintarTarjetas(arregloFiltrado, lugar);
+    } else {
+      lugar.innerHTML = "";
+      let aviso = document.createElement("div");
+      aviso.className = "alert alert-info";
+      aviso.setAttribute("role", "alert");
+      aviso.innerText = "No hay eventos que coincidan con los filtros";
+      lugar.appendChild(aviso);
+    }
+  }
+});

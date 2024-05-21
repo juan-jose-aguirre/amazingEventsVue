@@ -7,6 +7,9 @@ header{
 }
 main{
     background-color: #011F32;
+    .inputs{
+        background-color: red;
+    }
     .banner{
         .bannerText{
             h2{
