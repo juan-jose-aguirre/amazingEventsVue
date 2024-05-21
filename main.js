@@ -273,7 +273,7 @@ inputSearch.addEventListener("input", (e) => {
     } else {
       lugar.innerHTML = "";
       let aviso = document.createElement("div");
-      aviso.className = "alert alert-info";
+      aviso.className = "alert alert-info p-4 my-5";
       aviso.setAttribute("role", "alert");
       aviso.innerText = "No hay eventos que coincidan con los filtros";
       lugar.appendChild(aviso);
@@ -299,7 +299,7 @@ inputSearch.addEventListener("input", (e) => {
     } else {
       lugar.innerHTML = "";
       let aviso = document.createElement("div");
-      aviso.className = "alert alert-info";
+      aviso.className = "alert alert-info p-4 my-5";
       aviso.setAttribute("role", "alert");
       aviso.innerText = "No hay eventos que coincidan con los filtros";
       lugar.appendChild(aviso);
@@ -357,7 +357,7 @@ padreCheckbox.addEventListener("change", (e) => {
     } else {
       lugar.innerHTML = "";
       let aviso = document.createElement("div");
-      aviso.className = "alert alert-info";
+      aviso.className = "alert alert-info p-4 my-5";
       aviso.setAttribute("role", "alert");
       aviso.innerText = "No hay eventos que coincidan con los filtros";
       lugar.appendChild(aviso);
@@ -376,7 +376,7 @@ padreCheckbox.addEventListener("change", (e) => {
     } else {
       lugar.innerHTML = "";
       let aviso = document.createElement("div");
-      aviso.className = "alert alert-info";
+      aviso.className = "alert alert-info p-4 my-5";
       aviso.setAttribute("role", "alert");
       aviso.innerText = "No hay eventos que coincidan con los filtros";
       lugar.appendChild(aviso);

@@ -200,7 +200,6 @@ let arregloEventosPast = [];
 let lugar = document.getElementById("tarjetasPast");
 
 for (let i = 0; i < data.events.length; i++) {
-  let tarjeta = document.createElement("div");
   if (data.events[i].date < data.currentDate) {
     arregloEventosPast.push(data.events[i]);
   }
@@ -279,7 +278,7 @@ inputSearch.addEventListener("input", (e) => {
     } else {
       lugar.innerHTML = "";
       let aviso = document.createElement("div");
-      aviso.className = "alert alert-info";
+      aviso.className = "alert alert-info p-4 my-5";
       aviso.setAttribute("role", "alert");
       aviso.innerText = "No hay eventos que coincidan con los filtros";
       lugar.appendChild(aviso);
@@ -305,7 +304,7 @@ inputSearch.addEventListener("input", (e) => {
     } else {
       lugar.innerHTML = "";
       let aviso = document.createElement("div");
-      aviso.className = "alert alert-info";
+      aviso.className = "alert alert-info p-4 my-5";
       aviso.setAttribute("role", "alert");
       aviso.innerText = "No hay eventos que coincidan con los filtros";
       lugar.appendChild(aviso);
@@ -364,7 +363,7 @@ padreCheckbox.addEventListener("change", (e) => {
     } else {
       lugar.innerHTML = "";
       let aviso = document.createElement("div");
-      aviso.className = "alert alert-info";
+      aviso.className = "alert alert-info p-4 my-5";
       aviso.setAttribute("role", "alert");
       aviso.innerText = "No hay eventos que coincidan con los filtros";
       lugar.appendChild(aviso);
@@ -387,7 +386,7 @@ padreCheckbox.addEventListener("change", (e) => {
     } else {
       lugar.innerHTML = "";
       let aviso = document.createElement("div");
-      aviso.className = "alert alert-info";
+      aviso.className = "alert alert-info p-4 my-5";
       aviso.setAttribute("role", "alert");
       aviso.innerText = "No hay eventos que coincidan con los filtros";
       lugar.appendChild(aviso);
