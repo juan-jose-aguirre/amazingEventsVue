@@ -262,7 +262,6 @@ function pintarTarjetas(arreglo, lugar) {
 inputSearch.addEventListener("input", (e) => {
   let checkboxTrue = document.querySelectorAll("input[type=checkbox]:checked");
   if (e.target.value == "" && checkboxTrue.length == 0) {
-    console.log("Vacio texto, vacio check");
     pintarTarjetas(arregloEventosPast, lugar);
   } else if (e.target.value != "" && checkboxTrue.length == 0) {
     let arregloFiltrado = arregloEventosPast.filter((evento) => {
@@ -322,12 +321,10 @@ inputSearch.addEventListener("input", (e) => {
 });
 
 padreCheckbox.addEventListener("change", (e) => {
-  console.log(e);
   let checkboxTrue = document.querySelectorAll("input[type=checkbox]:checked");
   if (checkboxTrue.length == 0 && inputSearch.value == "") {
     pintarTarjetas(arregloEventosPast, lugar);
   } else if (checkboxTrue.length != 0 && inputSearch.value == "") {
-    console.log("vacio search y algo en check");
     let arregloFiltrado = arregloEventosPast.filter((evento) => {
       for (let checkboxTachado of checkboxTrue) {
         if (evento.category == checkboxTachado.value) {

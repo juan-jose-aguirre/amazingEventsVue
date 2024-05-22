@@ -202,8 +202,6 @@ let tarjeta = document.createElement("div");
 tarjeta.className = "d-flex justify-content-center";
 for(let evento of data.events){
     if(evento._id == id){
-      console.table(evento)
-      console.log(data.currentDate)
         tarjeta.innerHTML = `
         <img class="cardDetails rounded-start border-end-0 w-50 object-fit-cover" src="${evento.image}" alt="${evento.name}">
           <div class="cardDetails rounded-end border-start-0 text-center p-2 bg-light d-flex flex-column justify-content-center">
