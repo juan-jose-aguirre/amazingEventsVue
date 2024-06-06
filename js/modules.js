@@ -23,8 +23,8 @@ export function pintarTarjetas(arreglo, lugar) {
       tarjeta.classList.add("my-3");
       lugar.appendChild(tarjeta);
     }
-  }
-
+}
+//funcion que pinta los checkbox
 export function pintarCheckbox (arregloCategorias, lugar) {
     for (let categoria of arregloCategorias) {
         let inputCheckbox = document.createElement("div");
@@ -41,7 +41,7 @@ export function pintarCheckbox (arregloCategorias, lugar) {
         lugar.appendChild(inputCheckbox);
     }
 }
-
+//funcion que filtra el arreglo con respecto a las filtros del usuarios
 export function filtar(text,data,lugar){
     let checkboxTrue = document.querySelectorAll("input[type=checkbox]:checked");
   
@@ -108,4 +108,4 @@ export function filtar(text,data,lugar){
         lugar.appendChild(aviso);
       }
     }
-  }
+}
