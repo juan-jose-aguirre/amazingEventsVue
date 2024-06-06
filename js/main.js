@@ -1,7 +1,7 @@
 //Importación de las funciones de modules
 import { pintarTarjetas, pintarCheckbox, filtar } from "./modules.js";
 
-//Obtener la variables del HTML
+//Obtener las variables del HTML
 let lugar = document.getElementById("tarjetasHome");
 let padreCheckbox = document.querySelector(".padreCheckbox");
 let inputSearch = document.querySelector(".inputSearch");
@@ -18,8 +18,9 @@ fetch("https://aulamindhub.github.io/amazing-api/events.json")
   let arregloCategorias = [];
   //recorremos los eventos, si la categoria no existe, la agregamos
   for (let evento of data.events) {
-    if (!arregloCategorias.includes(evento.category))
+    if (!arregloCategorias.includes(evento.category)){
       arregloCategorias.push(evento.category);
+    }
   }
   //funcion que crea los checkbox, envia el arreglo y donde pintarlos
   pintarCheckbox(arregloCategorias,padreCheckbox);
@@ -28,9 +29,6 @@ fetch("https://aulamindhub.github.io/amazing-api/events.json")
   padreCheckbox.addEventListener("change", (e) => filtar(inputSearch.value,data,lugar));
   inputSearch.addEventListener("input", (e) => filtar(inputSearch.value,data,lugar));
   
-  
-
-
 })
 .catch();
 
