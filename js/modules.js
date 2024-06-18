@@ -1,5 +1,5 @@
 //Url base para los datalles de las tarjetas
-let urlDetails = new URL("http://127.0.0.1:5500/details.html");
+let urlDetails = new URL("http://127.0.0.1:5500/pages/details.html");
 //funcion que pinta las tarjetas
 export function pintarTarjetas(arreglo, lugar) {
     lugar.innerHTML = "";
