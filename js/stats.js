@@ -9,10 +9,6 @@ fetch("https://aulamindhub.github.io/amazing-api/events.json")
     let eventoMenorAsistencia = eventoMenorPorcentajeAsistencia(data.events);
     let eventoConMayorCapacidad = eventoMayorCapacidad(data.events);
 
-    // console.log(eventoMayorAsistencia);
-    // console.log(eventoMenorAsistencia);
-    // console.log(eventoConMayorCapacidad);
-
     pintarEventoMayorasistencia(data.events, eventoMayorAsistencia);
     pintarEventoMenorAsistencia(data.events, eventoMenorAsistencia);
     pintarEventoConMayorCapacidad(data.events, eventoConMayorCapacidad);

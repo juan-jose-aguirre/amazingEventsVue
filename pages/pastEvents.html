@@ -17,7 +17,7 @@
     <header>
       <nav class="navbar navbar-expand-md" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="../index.html">
+          <a class="navbar-brand" href="#">
             <img
               src="../assets/amazing_brand.png"
               alt="Amazing Events"
@@ -50,7 +50,7 @@
                   aria-current="page"
                   href="../index.html"
                   >Home</a
-                >
+                  >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./upcomingEvents.html">Upcoming Events</a>
@@ -70,7 +70,7 @@
         </div>
       </nav>
     </header>
-    <main class="pb-3">
+    <main id="app" class="pb-3">
       <section class="banner position-relative">
         <div class="bannerText position-absolute w-100 text-center pt-5 z-2">
           <h2 class="pt-5 fw-bold">PAST EVENTS</h2>
@@ -122,12 +122,23 @@
 
       <section class="mt-3">
         <div class="input-group mb-3 d-flex justify-content-around">
+          {{superFiltro}}
           <div class="padreCheckbox d-flex flex-wrap justify-content-center mb-2">
-
+            <div v-for="categoria in categorias" class="input-group-text me-1 mb-1">
+              <input v-model="categoriasSeleccionada" class="form-check-input mt-0 inputCheckbox"
+                :id="categoria"
+                type="checkbox"
+                :value="categoria"
+                :name="categoria"
+                :aria-label="categoria"
+                >
+            <label :for="categoria" class="ms-2">{{categoria}}</label>
+            </div>
           </div>
 
           <form class="d-flex mb-1" role="search">
             <input
+              v-model="textoBuscar"
               class="form-control inputSearch"
               type="search"
               placeholder="Search"
@@ -138,8 +149,27 @@
         </div>
       </section>
 
-      <section class="cards d-flex flex-wrap justify-content-around mx-5" id="tarjetasPast">
-
+      <section id="tarjetasHome" class="cards d-flex flex-wrap justify-content-around mx-5">
+        
+        <div v-if="listaEventos.length == 0" class="alert alert-info p-4 my-5" role="alert">
+          No hay eventos que coincidan con los filtros
+        </div>
+        
+        <div v-for="evento in listaEventos" class="my-3">
+          <div class="card h-100 tarjetas" style="width: 18rem">
+            <img :src="evento.image" class="card-img-top h-50 object-fit-cover" :alt="evento.name" >
+            <div class="card-body text-center d-flex flex-column h-50">
+              <h5 class="card-title">{{evento.name}}</h5>
+              <p class="card-text">
+              {{evento.description}}
+              </p>
+              <div class="d-flex justify-content-around align-items-baseline">
+                <p>{{evento.price}} USD</p>
+                <a :href="'http://127.0.0.1:5500/pages/details.html?id='+evento._id" class="btn irDetails">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer class="d-flex justify-content-between align-items-center px-3">
@@ -156,7 +186,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="../js/past.js" type="module"></script>
-    <script src="../js/modules.js" type="module"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../js/main.js" type="module"></script>
   </body>
 </html>
